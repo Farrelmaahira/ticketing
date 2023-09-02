@@ -7,9 +7,9 @@
     <div class="card shadow-2-strong" style="border-radius: 6px">
         <div class="card-body p-5 text-center">
 
-        <h3 class="mb-5">Daftarkan Akun</h3>
+        <h3 class="mb-5">Edit Laporan</h3>
         
-        <form action="{{ url('/auth/register') }}" method="POST">
+        <form action="{{ url('/dashboard/report') }}" method="POST">
             @csrf
         <div class="form-outline mb-4">
             <input
@@ -22,30 +22,8 @@
             />
         </div>
 
-        <div class="form-outline mb-4">
-            <input
-            name="name"
-            type="text"
-            id="typeTextX-2"
-            class="form-control form-control-lg"
-            required
-            placeholder="Username"
-            />
-        </div>
-
-        <div class="form-outline mb-4">
-            <input
-            name="password"
-            type="password"
-            id="typePasswordX-2"
-            class="form-control form-control-lg"
-            required
-            placeholder="Password"
-            />
-        </div>
-
         <button class="btn btn-primary btn-lg btn-block" type="submit" style="border-radius: 4px">
-            Daftar
+            Edit
         </button>
         </form>
         </div>

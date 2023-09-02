@@ -22,5 +22,15 @@ class CategoryController extends Controller
         return Redirect::back()->with('msg', 'Kategori Baru Berhasil Dibuat!');
     }
 
+    public function index(){
+        $data = Category::all();
+        return view('admin.category', ['data' => $data]);
+    }
+
+    public function show(){
+        $data = Category::all();
+        return view('admin.categorylist', ['data' => $data]);
+    }
+
 
 }

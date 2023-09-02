@@ -13,4 +13,8 @@ class ReviewController extends Controller
         $report = Report::all();
         return view('admin.report', compact('report'));
     }
+
+    public function update(Request $request, $id){
+        
+    }
 }

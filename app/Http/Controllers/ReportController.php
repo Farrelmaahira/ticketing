@@ -19,4 +19,8 @@ class ReportController extends Controller
 
         return Redirect::back()->with('success', 'Laporan Berhasil Dikirim!');
     }
+
+    public function update(Request $request, $id){
+        
+    }
 }

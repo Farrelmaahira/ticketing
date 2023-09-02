@@ -33,4 +33,9 @@ class NewUserController extends Controller
     public function newUser(){
         return view('admin.newuser');
     }
+
+    public function index(){
+        $data = User::all();
+        return view('admin.userlist', ['data' => $data]);
+    }
 }

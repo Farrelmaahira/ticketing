@@ -1,11 +1,7 @@
 @extends('layouts.main')
 
 @section('container')
-@if ($errors->any())
-   @foreach ($errors->all() as $error)
-      {{$error}} 
-   @endforeach 
-@endif
+
 <div class="vh-100" style="background-color: #508bfc;">
     <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
@@ -18,6 +14,13 @@
 
                     <form action="{{url('/auth/login')}}" method="POST">   
                         @csrf
+                        @if ($errors->any())
+                            @foreach ($errors->all() as $error)
+                                <div class="alert alert-danger alert-block">
+                                    <strong>{{ $error }}</strong>
+                                </div>
+                            @endforeach 
+                        @endif
                         <div class="form-outline mb-4">
                             <input name="email" type="email" id="typeEmailX-2" class="form-control form-control-lg" required placeholder="Email" />
                         </div>
@@ -28,12 +31,6 @@
             
                         <button class="btn btn-primary btn-lg btn-block" type="submit" style="border-radius: 4px">Masuk</button>
                     </form>
-                    
-                    <div class="col-12">
-                        <br>
-                        <p class="small mb-0">Belum punya akun?
-                        <a href="/register">Daftar disini</a></p>
-                    </div>
 
                     </div>
                 </div>
