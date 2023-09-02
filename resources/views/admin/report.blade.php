@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.dashboard')
 
 @section('container')
 <a href="/dashboard/admin" class="btn btn-danger">Kembali</a>
