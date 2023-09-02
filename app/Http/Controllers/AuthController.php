@@ -17,12 +17,18 @@ class AuthController extends Controller
 
     public function signin(Request $request)
     {
-        $validate = $request->validate([
+        $request->validate([
             'email' => 'required',
-            'password' => 'required'
+            'password' => 'required|min:8'
         ]);
+
+        $credentials = [
+            'email' => $request->email,
+            'password' => $request->password
+        ];
+
         $user = User::where('email', $request->email)->first();
-        if(Auth::attempt($validate))
+        if(Auth::attempt($credentials))
         {
             if($user->hasRole('admin'))
             {
