@@ -17,10 +17,15 @@ class AuthController extends Controller
 
     public function signin(Request $request)
     {
-        $request->validate([
-            'email' => 'required',
+        $validator = Validator::make($request->all(),[
+            'email' => 'required|email',
             'password' => 'required|min:8'
         ]);
+
+        if($validator->fails())
+        {
+            return back()->withErrors($validator);
+        }
 
         $credentials = [
             'email' => $request->email,
@@ -37,7 +42,7 @@ class AuthController extends Controller
                 return redirect('/home');
             }
         }else{
-            return redirect('/');
+            return back()->withErrors('Invalid Credentials');
         }
     }
 

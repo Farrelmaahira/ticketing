@@ -1,6 +1,11 @@
 @extends('layouts.main')
 
 @section('container')
+@if ($errors->any())
+   @foreach ($errors->all() as $error)
+      {{$error}} 
+   @endforeach 
+@endif
 <div class="vh-100" style="background-color: #508bfc;">
     <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
