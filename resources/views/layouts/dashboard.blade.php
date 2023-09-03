@@ -79,8 +79,8 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">List Data:</h6>
-                        <a class="collapse-item" href="/review">Review Laporan</a>
-                        <a class="collapse-item" href="/categorylist">List Kategori</a>
+                        <a class="collapse-item" href="{{url('/dashboard/report')}}">Review Laporan</a>
+                        <a class="collapse-item" href="{{url('/dashboard/category')}}">List Kategori</a>
                         <a class="collapse-item" href="/userlist">List Pengguna</a>
                     </div>
                 </div>
