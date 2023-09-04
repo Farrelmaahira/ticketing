@@ -26,7 +26,7 @@ class UserController extends Controller
 
         $user->assignRole('user');
 
-        return redirect('/');
+    return redirect()->back()->with(['msg' => 'Akun Pengguna Berhasil Dibuat!']);
 
     }
 
@@ -42,6 +42,7 @@ class UserController extends Controller
     public function show($id)
     {
         $data = User::where('id', $id)->get();
+        return view('admin.edituser', ['data' => $data]);
     }
 
     public function edit($id)
@@ -66,11 +67,15 @@ class UserController extends Controller
             'password' => $hash
         ]);
 
+        return redirect()->back()->with(['msg' => 'Akun pengguna berhasil di edit']);
+
     }
 
     public function destroy($id)
     {
         $data = User::where('id', $id);
         $data->delete();
+
+        return redirect()->back()->with(['msg' => 'Akun pengguna berhasil di hapus']);
     }
 }

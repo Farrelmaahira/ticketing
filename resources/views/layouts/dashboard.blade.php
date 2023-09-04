@@ -31,7 +31,9 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
-                <div class="sidebar-brand-text mx-3">Cyber Counselor</div>
+                <div class="sidebar-brand-text mx-3">
+                    <img src="{{ URL::asset('img/cy.jfif') }}" alt="" width="50" height="50" style="border-radius: 3px">
+                </div>
             </a>
 
             <!-- Divider -->
@@ -62,8 +64,8 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">List Data Baru:</h6>
-                        <a class="collapse-item" href="/newuser">Buat Pengguna</a>
-                        <a class="collapse-item" href="/category">Buat Kategori</a>
+                        <a class="collapse-item" href="/dashboard/user/add">Buat Pengguna</a>
+                        <a class="collapse-item" href="/dashboard/category/add">Buat Kategori</a>
                     </div>
                 </div>
             </li>
@@ -81,45 +83,13 @@
                         <h6 class="collapse-header">List Data:</h6>
                         <a class="collapse-item" href="{{url('/dashboard/report')}}">Review Laporan</a>
                         <a class="collapse-item" href="{{url('/dashboard/category')}}">List Kategori</a>
-                        <a class="collapse-item" href="/userlist">List Pengguna</a>
+                        <a class="collapse-item" href="/dashboard/user">List Pengguna</a>
                     </div>
                 </div>
             </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Addons
-            </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
-                </a>
-            </li>
-
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
-            </li>
-
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
-
         </ul>
         <!-- End of Sidebar -->
 
@@ -299,7 +269,10 @@
                 <div class="modal-body">Pilih Keluar untuk kembali ke halaman login</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Keluar</a>
+                    <form action="/auth/logout" method="post">
+                        @csrf
+                        <input type="submit" class="btn btn-primary" value="Keluar">
+                    </form>
                 </div>
             </div>
         </div>

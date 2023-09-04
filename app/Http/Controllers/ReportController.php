@@ -31,6 +31,7 @@ class ReportController extends Controller
     public function show($id)
     {
         $report = Report::where('id', $id)->get();
+        return view('admin.editreport', ['data' => $report]);
     }
 
     public function edit($id)

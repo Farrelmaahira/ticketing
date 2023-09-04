@@ -33,9 +33,9 @@ Route::controller(AuthController::class)->group(function(){
 
 Route::controller(DashboardController::class)->group(function(){
     Route::get('/dashboard/admin', 'admin')->middleware(['auth', 'role:admin']);
-    Route::get('/dashboard/category', 'category')->middleware(['auth', 'role:admin']);
+    Route::get('/dashboard/category/add', 'category')->middleware(['auth', 'role:admin']);
     Route::get('/home', 'user')->middleware(['auth', 'role:user']);
-    Route::get('/dashboard/report', 'report')->middleware(['auth', 'role:user']);
+    Route::get('/dashboard/report/add', 'report')->middleware(['auth', 'role:user']);
 });
 
 Route::controller(CategoryController::class)->group(function(){
@@ -65,8 +65,9 @@ Route::controller(ReportController::class)->group(function(){
 Route::controller(UserController::class)->group(function(){
     Route::get('/dashboard/user/add', 'newUser')->middleware(['auth', 'role:admin']);
     Route::get('/dashboard/user', 'index')->middleware(['auth', 'role:admin']);    
+    Route::post('/dashboard/user', 'storeUser')->middleware(['auth', 'role:admin']);    
     Route::get('/dashboard/user/{id}', 'show')->middleware(['auth', 'role:admin']);
     Route::get('/dashboard/user/edit/{id}', 'edit')->middleware(['auth', 'role:admin']);
     Route::put('/dashboard/user/{id}', 'update')->middleware(['auth', 'role:admin']);
-    Route::delete('/dashboarrd/user/{id}', 'destroy')->middleware(['auth', 'role:admin']);
+    Route::delete('/dashboard/user/{id}', 'destroy')->middleware(['auth', 'role:admin']);
 });

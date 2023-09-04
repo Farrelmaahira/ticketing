@@ -41,6 +41,7 @@ class CategoryController extends Controller
     public function edit($id)
     {
         $data = Category::where('id', $id)->get();
+        return view('admin.editcategory', ['data' => $data]);
     }
 
     public function update(Request $request, $id)
@@ -53,11 +54,14 @@ class CategoryController extends Controller
         $data->update([
             'name' => $request->name
         ]);
+
+        return redirect()->back()->with(['msg' => 'Kategori Berhasil di Edit!']);
     }
 
     public function destroy($id)
     {
         $data = Category::where('id', $id)->delete();
+        return redirect()->back()->with(['msg' => 'Kategori Berhasil Dihapus']);
     }
 
 

@@ -2,11 +2,6 @@
 
 @section('container')
 
-@if ($message = Session::get('success'))
-    <div class="alert alert-success alert-block">
-        <strong>{{ $message }}</strong>
-    </div>
-@endif
 
 <div class="vh-100" style="background-color: #508bfc;">
     <div class="container py-5 h-100">
@@ -16,6 +11,11 @@
                     <div class="card-body">
                         <form action="{{ url('/dashboard/report') }}" method="post">
                             @csrf
+                            @if ($message = Session::get('success'))
+                            <div class="alert alert-success alert-block">
+                                <strong>{{ $message }}</strong>
+                            </div>
+                            @endif
                             <h6>Pilih Kategori Laporan</h6>
                             <select name="category_id" class="form-select mb-2" aria-label="Default select example">
                                 @foreach ($data as $category)
@@ -27,6 +27,7 @@
                                 <textarea name="description" class="form-control" placeholder="Tulis laporan anda" id="floatingTextarea2" style="height: 100px"></textarea>
                             </div>
                             <input class="btn btn-success mt-2" type="submit" value="Submit">
+                            <a href="{{ URL::previous() }}" class="btn btn-danger mt-2">Go Back</a>
                         </form>
                     </div>
                 </div>

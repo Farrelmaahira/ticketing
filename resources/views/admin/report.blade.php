@@ -22,7 +22,7 @@
                 <td>{{ $rep->user->name }}</td>
                 <td>{{ $rep->description }}</td>
                 <td>
-                    <a href=""><button type="button" class="btn btn-info">Edit</button></a>
+                    <a href="/dashboard/report/{{ $rep->id }}"><button type="button" class="btn btn-info">Edit</button></a>
                     <button type="button" class="btn btn-danger">Hapus</button>
                 </td>
             </tr>

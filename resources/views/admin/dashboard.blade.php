@@ -1,6 +1,9 @@
 @extends('layouts.dashboard')
 
 @section('container')
+
+
+
 <h1>
     ini dashboard admin
 </h1>
