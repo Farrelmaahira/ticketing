@@ -27,7 +27,7 @@
                                 <textarea name="description" class="form-control" placeholder="Tulis laporan anda" id="floatingTextarea2" style="height: 100px"></textarea>
                             </div>
                             <input class="btn btn-success mt-2" type="submit" value="Submit">
-                            <a href="{{ URL::previous() }}" class="btn btn-danger mt-2">Go Back</a>
+                            <a href="/" class="btn btn-danger mt-2">Go Back</a>
                         </form>
                     </div>
                 </div>
