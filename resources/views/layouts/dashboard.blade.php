@@ -236,8 +236,8 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <footer class="sticky-footer bg-white" id="footer" >
-                <div class="container my-auto">
+            <footer class="sticky-footer bg-white" id="myFooter" >
+                <div class="container my-auto" >
                     <div class="copyright text-center my-auto">
                         <span>Copyright &copy;2023 CyberCode </span>
                     </div>

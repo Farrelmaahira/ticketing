@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{{ URL::asset('css/sb-admin-2.min.css') }}">
 </head>
 <body>
-    <div id="wrapper">
+    <div id="myWrapper">
         <div id="container" class="container">
             @yield('container')
         </div>
