@@ -44,12 +44,12 @@ class ReportController extends Controller
     public function update($id, Request $request)
     {
         $request->validate([
-            'report' => 'required',
+            'description' => 'required',
             'category_id' => 'required'
         ]);
         $report = Report::where('id', $id);
         $report->update([
-            'report' => $request->report,
+            'description' => $request->description,
             'category_id' => $request->category_id
         ]);
         return redirect()->back()->with(['msg' => 'Laporan Berhasil di Edit!']);
