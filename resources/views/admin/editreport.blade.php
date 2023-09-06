@@ -1,7 +1,11 @@
 @extends('layouts.dashboard')
 
 @section('container')
-
+@if ($message = Session::get('msg'))
+<div class="alert alert-success alert-block">
+    <strong>{{ $message }}</strong>
+</div>
+@endif
 <div class="row d-flex justify-content-center align-items-center ">
     <div class="col-12 col-md-8 col-lg-6 col-xl-5 mb-4">
         <div class="myCard card m-auto" style="width: 30rem;">
