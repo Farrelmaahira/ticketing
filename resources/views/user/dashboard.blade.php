@@ -10,7 +10,7 @@
                         <h5 class="card-title">Selamat Datang di Cyber Counselor Connect</h5>
                         <p class="card-text">Klik "Lapor" untuk melapor dan klik "Keluar" untuk logout</p>
                         <div id="button-place">
-                            <a href="/dashboard/report/add" class="btn btn-success">Lapor</a>
+                            <a href="/dashboard/report/add" class="btn btn-success mb-2">Lapor</a>
                             <form action="{{url('/auth/logout')}}" method="post">
                                 @csrf
                                 <input class="btn btn-danger" type="submit" value="Keluar">

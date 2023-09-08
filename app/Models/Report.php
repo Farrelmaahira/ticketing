@@ -11,7 +11,8 @@ class Report extends Model
     protected $fillable = [
         'user_id',
         'description',
-        'category_id'
+        'category_id',
+        'image'
     ];
 
     public function category()

@@ -9,7 +9,7 @@
             <div class="col-12 col-md-8 col-lg-6 col-xl-5">
                 <div class="myCard card m-auto" style="width: 30rem;">
                     <div class="card-body">
-                        <form action="{{ url('/dashboard/report') }}" method="post">
+                        <form action="{{ url('/dashboard/report') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             @if ($message = Session::get('success'))
                             <div class="alert alert-success alert-block">
@@ -24,7 +24,9 @@
                             </select>
                             <div class="form-floating">
                                 <h6>Tulis Laporan Anda</h6>
-                                <textarea name="description" class="form-control" placeholder="Tulis laporan anda" id="floatingTextarea2" style="height: 100px"></textarea>
+                                <textarea name="description" class="form-control mb-2" placeholder="Tulis laporan anda" id="floatingTextarea2" style="height: 100px" required></textarea>
+                                <h6>Upload Foto (Optional)</h6>
+                                <input type="file" name="image" id="">
                             </div>
                             <input class="btn btn-success mt-2" type="submit" value="Submit">
                             <a href="/" class="btn btn-danger mt-2">Go Back</a>

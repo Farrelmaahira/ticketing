@@ -14,16 +14,32 @@ class ReportController extends Controller
     public function index()
     {
         $report = Report::all();
-        return view('admin.report', compact('report'));
+        return view('admin.report', ['data' => $report]);
 
     }
 
     public function store(Request $request){
+
+        $request->validate([
+            'image' => 'image|nullable|max:9999'
+        ]);
+
+        if($request->hasFile('image')){
+            $filename = $request->file('image')->getClientOriginalName();
+            $fileinfo = pathinfo($filename, PATHINFO_FILENAME);
+            $ext = $request->file('image')->getClientOriginalExtension();
+            $filesave = $fileinfo.'_'.time().'.'.$ext;
+            $path = $request->file('image')->storeAs('public/uploads', $filesave);
+        }
+
+        dd($request->file('image'));
+        
         $user_id = Auth::user()->id;
         $data = Report::create([
             'category_id' => $request->category_id,
             'description' => $request->description,
-            'user_id' => $user_id
+            'user_id' => $user_id,
+            'image' => $request->file('image')->getClientOriginalName()
         ]);
 
         return Redirect::back()->with('success', 'Laporan Berhasil Dikirim!');
