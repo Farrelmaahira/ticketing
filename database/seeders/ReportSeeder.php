@@ -16,6 +16,7 @@ class ReportSeeder extends Seeder
         //
         Report::create([
             'user_id' => '2',
+            'title' => '[CONTOH] Ini Title',
             'description' => '[CONTOH] Ini Deskripsi',
             'category_id' => '1'
         ]);

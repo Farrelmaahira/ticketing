@@ -12,6 +12,7 @@
         <thead>
             <tr>
                 <th scope="col">No</th>
+                <th scope="col">Judul</th>
                 <th scope="col">Kategori</th>
                 <th scope="col">Pelapor</th>
                 <th scope="col">Laporan</th>
@@ -24,15 +25,17 @@
             @foreach ($data as $rep)
             <tr>
                 <th scope="row">{{ $no++ }}</th>
+                <td>{{ $rep->title }}</td>
                 <td>{{ $rep->category->name }}</td>
                 <td>{{ $rep->user->name }}</td>
                 <td>{{ $rep->description }}</td>
-                <td><img src="{{ asset('upload/' . $rep->image) }}" alt="No Image" width="100" height="100"></td>
+                <td><img src="{{ asset('images/' . $rep->image) }}" alt="No Image" width="100" height="100"></td>
                 <td>
-                    <a href="/dashboard/report/{{ $rep->id }}"><button type="button" class="btn btn-info mb-2">Edit</button></a>
+                    <a href="/dashboard/report/{{ $rep->id }}"><button type="button" class="btn btn-success mb-1">Details</button></a>
                     <form action="/dashboard/report/{{ $rep->id }}" method="POST">
                         @csrf
                         @method('delete')
+                        <a href="/dashboard/report/edit/{{ $rep->id }}"><button type="button" class="btn btn-info">Edit</button></a>
                         <button type="submit" class="btn btn-danger">Hapus</button>
                     </form>
                 </td>

@@ -19,14 +19,20 @@
                             <h6>Pilih Kategori Laporan</h6>
                             <select name="category_id" class="form-select mb-2" aria-label="Default select example">
                                 @foreach ($data as $category)
-                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
                                 @endforeach
                             </select>
                             <div class="form-floating">
-                                <h6>Tulis Laporan Anda</h6>
-                                <textarea name="description" class="form-control mb-2" placeholder="Tulis laporan anda" id="floatingTextarea2" style="height: 100px" required></textarea>
-                                <h6>Upload Foto (Optional)</h6>
-                                <input type="file" name="image" id="">
+                                <div class="form-group">
+                                    <label for="user">Judul Laporan Anda</label>
+                                    <input type="text" id="formGroupExampleInput" class="form-control mb-2" name="title" id="" placeholder="Judul Laporan Anda *">
+                                </div>
+                                <div class="form-group">
+                                    <h6>Tulis Isi Laporan Anda</h6>
+                                    <textarea name="description" class="form-control mb-2" placeholder="Isi Laporan Anda *" id="floatingTextarea2" style="height: 100px" required></textarea>
+                                    <h6>Upload Foto (Optional)</h6>
+                                    <input type="file" name="image" id="">
+                                </div>
                             </div>
                             <input class="btn btn-success mt-2" type="submit" value="Submit">
                             <a href="/" class="btn btn-danger mt-2">Go Back</a>

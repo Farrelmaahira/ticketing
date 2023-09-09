@@ -27,10 +27,10 @@
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
                     <td>
-                        <a href="/dashboard/user/{{ $user->id }}" class="btn btn-info mb-2">Edit</a>
                         <form action="/dashboard/user/{{ $user->id }}" method="POST">
                             @csrf
                             @method('delete')
+                            <a href="/dashboard/user/{{ $user->id }}" class="btn btn-info">Edit</a>
                             <button type="submit" class="btn btn-danger">Hapus</button>
                         </form>
                     </td>

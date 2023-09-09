@@ -26,10 +26,10 @@
                         <th scope="row">{{ $no++ }}</th>
                         <td>{{ $kat->name }}</td>
                         <td>
-                            <a href="/dashboard/category/edit/{{ $kat->id }}" class="btn btn-info mb-2">Edit</a>
                             <form action="/dashboard/category/{{ $kat->id }}" method="POST">
                                 @csrf
                                 @method('delete')
+                                <a href="/dashboard/category/edit/{{ $kat->id }}" class="btn btn-info">Edit</a>
                                 <button type="submit" class="btn btn-danger">Hapus</button>
                             </form>
                         </td>

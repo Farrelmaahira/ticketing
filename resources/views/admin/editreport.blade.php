@@ -14,13 +14,17 @@
                 <form action="{{url('/dashboard/report', $item->id)}}" method="post">
                     @csrf
                     @method('PUT')
-                    <h6>Pilih Kategori Laporan</h6>
+                    <h6>Edit Kategori Laporan</h6>
                     <select name="category_id" class="form-select mb-2" aria-label="Default select example">
                         @foreach ($categories as $cat)
-                            <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+                        <option value="{{ $cat->id }}">{{ $cat->name }}</option>
                         @endforeach
                     </select>
                     <div class="form-floating">
+                    <div class="form-group">
+                        <h6>Edit Judul Laporan</h6>
+                        <input type="text" class="form-control" name="title" id="" placeholder="Edit judul laporan..." value="{{ $item->title }}">
+                    </div>
                         <h6>Tulis Laporan Anda</h6>
                         <textarea name="description" class="form-control" placeholder="Tulis laporan anda" id="floatingTextarea2" style="height: 100px">{{ $item->description }}</textarea>
                     </div>

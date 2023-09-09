@@ -20,27 +20,32 @@ class ReportController extends Controller
 
     public function store(Request $request){
 
+        // dd($request);
+        $title = $request->title;
+        
         $request->validate([
             'image' => 'image|nullable|max:9999'
         ]);
 
-        if($request->hasFile('image')){
-            $filename = $request->file('image')->getClientOriginalName();
-            $fileinfo = pathinfo($filename, PATHINFO_FILENAME);
-            $ext = $request->file('image')->getClientOriginalExtension();
-            $filesave = $fileinfo.'_'.time().'.'.$ext;
-            $path = $request->file('image')->storeAs('public/uploads', $filesave);
-        }
+        $request['user_id'] = Auth::user()->id;
+        $input = $request->all();
 
-        dd($request->file('image'));
-        
-        $user_id = Auth::user()->id;
-        $data = Report::create([
-            'category_id' => $request->category_id,
-            'description' => $request->description,
-            'user_id' => $user_id,
-            'image' => $request->file('image')->getClientOriginalName()
-        ]);
+        if ($image = $request->file('image')) {
+            $destinationPath = 'images/';
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $input['image'] = "$profileImage";
+
+            $data = Report::create($input);
+        }else{
+    
+            $data = Report::create([
+                'title' => $request->title,
+                'category_id' => $request->category_id,
+                'description' => $request->description,
+                'user_id' => $user_id,
+            ]);
+        }
 
         return Redirect::back()->with('success', 'Laporan Berhasil Dikirim!');
     }
@@ -48,13 +53,14 @@ class ReportController extends Controller
     public function show($id)
     {
         $report = Report::where('id', $id)->get();
-        $categories = Category::all();
-        return view('admin.editreport', compact('report', 'categories'));
+        return view('admin.singlereport', ['data' => $report]);
     }
 
     public function edit($id)
     {
         $report = Report::where('id', $id)->get();
+        $categories = Category::all();
+        return view('admin.editreport', compact('report', 'categories'));
     }
 
     public function update($id, Request $request)
@@ -65,6 +71,7 @@ class ReportController extends Controller
         ]);
         $report = Report::where('id', $id);
         $report->update([
+            'title' => $request->title,
             'description' => $request->description,
             'category_id' => $request->category_id
         ]);

@@ -4,6 +4,10 @@
     flex-direction: column;
 }
 
+#myWrapperFlex {
+    display: flex;
+}
+
 #footer {
     right: 0;
     left: 0;
@@ -25,4 +29,8 @@
 
 #myContainer {
     height: 90vh;
+}
+
+.singleHead {
+    text-align: center;
 }
