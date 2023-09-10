@@ -83,7 +83,7 @@ class ReportController extends Controller
         $report = Report::where('id', $id);
         $report->delete();
 
-        return redirect()->back()->with(['msg' => 'Laporan Berhasil di Hapus!']);
+        return redirect('/dashboard/report')->with(['msg' => 'Laporan Berhasil di Hapus!']);
     }
 }
 

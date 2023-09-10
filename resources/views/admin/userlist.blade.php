@@ -10,7 +10,7 @@
     <div class="col-12 col-md-8 col-lg-6 col-xl-5">
         <h3>List Pengguna</h3>
     <div class="table-review">
-        <table class="table" style="text-align: center">
+        <table class="table" style="text-align: center;">
             <thead>
                 <tr>
                     <th scope="col">No</th>
@@ -19,7 +19,7 @@
                     <th scope="col">Action</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody style="color:black;">
                 <?php $no = 1 ?>
                 @foreach ($data as $user)
                 <tr>

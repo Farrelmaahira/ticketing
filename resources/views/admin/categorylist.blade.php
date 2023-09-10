@@ -11,7 +11,7 @@
         <h3>List Kategori</h3>
 
         <div class="table-review">
-            <table class="table" style="text-align: center">
+            <table class="table" style="text-align: center;">
                 <thead>
                     <tr>
                         <th scope="col">No</th>
@@ -19,7 +19,7 @@
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody style="color:black;">
                     <?php $no = 1 ?>
                     @foreach ($data as $kat)
                     <tr>

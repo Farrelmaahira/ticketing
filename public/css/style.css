@@ -1,3 +1,7 @@
+html, body {
+    height: 100%;
+}
+
 #myWrapper {
     background-color: #508BFC;
     display: flex;
@@ -29,6 +33,11 @@
 
 #myContainer {
     height: 90vh;
+}
+
+.flex-con {
+    display: flex;
+    flex-direction: column;
 }
 
 .singleHead {
