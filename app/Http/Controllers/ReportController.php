@@ -27,6 +27,7 @@ class ReportController extends Controller
             'image' => 'image|nullable|max:9999'
         ]);
 
+        $user_id = Auth::user()->id;
         $request['user_id'] = Auth::user()->id;
         $input = $request->all();
 
